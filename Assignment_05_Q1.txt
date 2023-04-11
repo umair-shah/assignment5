@@ -1,0 +1,19 @@
+class Album {
+  String title;
+  bool completed;
+
+  Album({this.title, this.completed});
+
+  factory Album.fromJson(Map<String, dynamic> json) {
+    return Album(
+      title: json['title'],
+      completed: json['completed'],
+    );
+  }
+}
+
+String jsonStr = '{ "title": "delectus aut autem", "completed": false }';
+Map<String, dynamic> json = jsonDecode(jsonStr);
+Album album = Album.fromJson(json);
+print(album.title); // prints "delectus aut autem"
+print(album.completed); // prints false

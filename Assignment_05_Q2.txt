@@ -1,0 +1,22 @@
+class MathUtils {
+  static double divide(int dividend, int divisor) {
+    if (divisor == 0) {
+      throw Exception('Cannot divide by zero');
+    }
+    return dividend / divisor;
+  }
+}
+
+import 'package:test/test.dart';
+
+void main() {
+  group('MathUtils', () {
+    test('divide two positive numbers', () {
+      expect(MathUtils.divide(6, 2), equals(3));
+    });
+
+    test('divide by zero throws exception', () {
+      expect(() => MathUtils.divide(6, 0), throwsA(isA<Exception>()));
+    });
+  });
+}
